@@ -192,17 +192,18 @@ namespace Cps_x35
             m_dbOper.SetConsistValue(m_lotnum, -1);
             // show in ListView
             var data = new List<string>();
+            // export data in ListView
             var expData = new List<string>();
 
             data.Add(m_sn.ToString());
             expData.Add(m_sn.ToString());
 
-            foreach (var item in m_dbOper.GetCarsData(m_lotnum))
+            foreach (var item in m_dbOper.GetCarsData(m_lotnum, 0))
             {
                 data.Add((string)item);
             }
 
-            foreach (var item in m_dbOper.GetCarnumsData(m_lotnum))
+            foreach (var item in m_dbOper.GetCarsData(m_lotnum, 1))
             {
                 expData.Add((string)item);
             }

@@ -92,55 +92,13 @@ namespace Cps_x35.Models
         }
 
         /// <summary>
-        /// Get the car number data with Chinese
-        /// 
-        /// </summary>
-        /// <param name="iLotNumberId">(Integer) lot number id</param>
-        /// <returns></returns>
-        public String[] GetCarsData(int iLotNumberId)
-        {
-            String[] result = null;
-
-            using (var context = new PubsDbContext())
-            {
-                var dispatchStores = context.DispatchStores
-                    .Where(lot => lot.LotNumberId == iLotNumberId);
-
-                // Dotnet 6.0
-                System.Diagnostics.Debug.WriteLine(dispatchStores.ToQueryString());
-
-                foreach (var dispatchStore in dispatchStores)
-                {
-                    result = new String[] {
-                        dispatchStore.TotalWeight.ToString(),
-                        dispatchStore.Weight.ToString(),
-                        dispatchStore.CarModel.ToString(),
-                        dispatchStore.CarNumber.ToString(),
-                        dispatchStore.CarryWeight.ToString(),
-                        dispatchStore.SelfWeight.ToString(),
-                        dispatchStore.PlWeight.ToString(),
-                        //dispatchStore.BreedCoalId.ToString(),
-                        GetBreedCoalDescription(dispatchStore.BreedCoalId),
-                        //dispatchStore.ArriveStationId.ToString(),
-                        GetArriveStationDescription(dispatchStore.ArriveStationId),
-                        dispatchStore.PastDate.ToShortDateString(),
-                        dispatchStore.PastTime.ToString()
-                    };
-                }
-
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Get the car number data with English
-        /// 
-        /// Available for export data(ASCII)
+        /// Get the car number data
+        ///
         /// </summary>
         /// <param name="iLotNumberId"></param>
+        /// <param name="iType">0:description; 1:name</param>
         /// <returns></returns>
-        public String[] GetCarnumsData(int iLotNumberId)
+        public String[] GetCarsData(int iLotNumberId, int iType)
         {
             String[] result = null;
 
@@ -163,9 +121,9 @@ namespace Cps_x35.Models
                         dispatchStore.SelfWeight.ToString(),
                         dispatchStore.PlWeight.ToString(),
                         //dispatchStore.BreedCoalId.ToString(),
-                        GetBreedCoalName(dispatchStore.BreedCoalId),
+                        GetBreedCoalInfo(dispatchStore.BreedCoalId, iType),
                         //dispatchStore.ArriveStationId.ToString(),
-                        GetArriveStationName(dispatchStore.ArriveStationId),
+                        GetArriveStationInfo(dispatchStore.ArriveStationId, iType),
                         m_common.GetDateFormat(dispatchStore.PastDate, "."),
                         dispatchStore.PastTime.ToString()
                     };
@@ -265,12 +223,13 @@ namespace Cps_x35.Models
         }
 
         /// <summary>
-        /// Get Description from ArriveStation table
+        /// Get Description or Name from ArriveStation table
         /// 
         /// </summary>
         /// <param name="iArrvieStationId"></param>
+        /// <param name="iType">0:description; 1:name</param>
         /// <returns></returns>
-        public String GetArriveStationDescription(int iArrvieStationId)
+        private String GetArriveStationInfo(int iArrvieStationId, int iType)
         {
             var result = "";
 
@@ -279,9 +238,20 @@ namespace Cps_x35.Models
                 var arrvieStations = context.ArriveStations
                     .Where(a => a.Id == iArrvieStationId);
 
-                foreach (var arrvieStation in arrvieStations)
+                if (iType == 0) // Get Description
                 {
-                    result = arrvieStation.Description;
+                    foreach (var arrvieStation in arrvieStations)
+                    {
+                        result = arrvieStation.Description;
+                    }
+                }
+
+                if (iType == 1) // Get Name
+                {
+                    foreach (var arrvieStation in arrvieStations)
+                    {
+                        result = arrvieStation.Name;
+                    }
                 }
             }
 
@@ -289,36 +259,13 @@ namespace Cps_x35.Models
         }
 
         /// <summary>
-        /// Get Name from ArriveStation table
-        /// 
-        /// </summary>
-        /// <param name="iArrvieStationId"></param>
-        /// <returns></returns>
-        public String GetArriveStationName(int iArrvieStationId)
-        {
-            var result = "";
-
-            using (var context = new PubsDbContext())
-            {
-                var arrvieStations = context.ArriveStations
-                    .Where(a => a.Id == iArrvieStationId);
-
-                foreach (var arrvieStation in arrvieStations)
-                {
-                    result = arrvieStation.Name;
-                }
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Get Name from BreedCoal table
+        /// Get Description or Name from BreedCoal table
         /// 
         /// </summary>
         /// <param name="iBreedCoalId"></param>
+        /// <param name="iType">0:description; 1:name</param>
         /// <returns></returns>
-        public String GetBreedCoalName(int iBreedCoalId)
+        private String GetBreedCoalInfo(int iBreedCoalId, int iType)
         {
             var result = "";
 
@@ -326,32 +273,19 @@ namespace Cps_x35.Models
             {
                 var breedCoals = context.BreedCoals.Where(b => b.Id == iBreedCoalId);
 
-                foreach (var breedCoal in breedCoals)
+                if (iType == 0) // Get Description
                 {
-                    result = breedCoal.Name;
+                    foreach (var breedCoal in breedCoals)
+                    {
+                        result = breedCoal.Description;
+                    }
                 }
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Get Description from BreedCoal table
-        /// 
-        /// </summary>
-        /// <param name="iBreedCoalId"></param>
-        /// <returns></returns>
-        public String GetBreedCoalDescription(int iBreedCoalId)
-        {
-            var result = "";
-
-            using (var context = new PubsDbContext())
-            {
-                var breedCoals = context.BreedCoals.Where(b => b.Id == iBreedCoalId);
-
-                foreach (var breedCoal in breedCoals)
+                if (iType == 1) // Get Name
                 {
-                    result = breedCoal.Description;
+                    foreach (var breedCoal in breedCoals)
+                    {
+                        result = breedCoal.Name;
+                    }
                 }
             }
 
