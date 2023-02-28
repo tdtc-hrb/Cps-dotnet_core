@@ -101,6 +101,12 @@ namespace Cps_x35.Models
         public String[] GetCarsData(int iLotNumberId, int iType)
         {
             String[] result = null;
+            String separator = ".";
+
+            if (iType == 0 ) 
+            {
+                separator = "-";
+            } 
 
             using (var context = new PubsDbContext())
             {
@@ -124,7 +130,7 @@ namespace Cps_x35.Models
                         GetBreedCoalInfo(dispatchStore.BreedCoalId, iType),
                         //dispatchStore.ArriveStationId.ToString(),
                         GetArriveStationInfo(dispatchStore.ArriveStationId, iType),
-                        m_common.GetDateFormat(dispatchStore.PastDate, "."),
+                        m_common.GetDateFormat(dispatchStore.PastDate, separator),
                         dispatchStore.PastTime.ToString()
                     };
                 }
