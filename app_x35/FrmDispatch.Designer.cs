@@ -50,7 +50,7 @@ namespace Cps_x35
             columnHeader10 = new ColumnHeader();
             columnHeader11 = new ColumnHeader();
             columnHeader12 = new ColumnHeader();
-            ListViewContextMenuStrip = new ContextMenuStrip(components);
+            listViewContextMenuStrip = new ContextMenuStrip(components);
             toolStripMenuItem31 = new ToolStripMenuItem();
             panel6 = new Panel();
             expListView = new ListView();
@@ -74,7 +74,7 @@ namespace Cps_x35
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
-            ListViewContextMenuStrip.SuspendLayout();
+            listViewContextMenuStrip.SuspendLayout();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -127,7 +127,7 @@ namespace Cps_x35
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8, columnHeader9, columnHeader10, columnHeader11, columnHeader12 });
-            listView1.ContextMenuStrip = ListViewContextMenuStrip;
+            listView1.ContextMenuStrip = listViewContextMenuStrip;
             listView1.Dock = DockStyle.Fill;
             listView1.FitToPage = false;
             listView1.FullRowSelect = true;
@@ -187,11 +187,11 @@ namespace Cps_x35
             // 
             columnHeader12.Text = "时间";
             // 
-            // ListViewContextMenuStrip
+            // listViewContextMenuStrip
             // 
-            ListViewContextMenuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItem31 });
-            ListViewContextMenuStrip.Name = "ListViewContextMenuStrip";
-            ListViewContextMenuStrip.Size = new Size(227, 26);
+            listViewContextMenuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItem31 });
+            listViewContextMenuStrip.Name = "ListViewContextMenuStrip";
+            listViewContextMenuStrip.Size = new Size(227, 26);
             // 
             // toolStripMenuItem31
             // 
@@ -374,7 +374,7 @@ namespace Cps_x35
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ListViewContextMenuStrip.ResumeLayout(false);
+            listViewContextMenuStrip.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
@@ -423,7 +423,7 @@ namespace Cps_x35
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ContextMenuStrip ListViewContextMenuStrip;
+        private System.Windows.Forms.ContextMenuStrip listViewContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem31;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ListView expListView;
