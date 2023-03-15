@@ -244,6 +244,9 @@ namespace Cps_x35
         private void btnCsv_Click(object sender, EventArgs e)
         {
             String exportFile = "C:/send/myTest.txt";
+            String srvName = "Server";
+            String javaName = "java.exe";
+
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(exportFile))
             {
                 toolStripStatusLabel2.Text = "Please wait...";
@@ -257,11 +260,20 @@ namespace Cps_x35
             /// git clone git@bitbucket.org:li_guibin/commsrv2.git
             String strArgs = "-Dfile.encoding=UTF8";
             strArgs += " -classpath \"C:\\commsrv2;C:\\commsrv2\\lib\\log4j-1.2.17.jar;C:\\commsrv2\\lib\\xom-1.1.jar\"";
-            strArgs += " Server";
+            strArgs += " " + srvName;
             strArgs += " C:\\receive\\configQ.xml";
-            ProcessStartInfo startInfo = new ProcessStartInfo("java.exe", strArgs);
-            toolStripStatusLabel2.Text = "Running CMD...";
-            Process.Start(startInfo);
+            try
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo(javaName, strArgs);
+                toolStripStatusLabel2.Text = "Running CMD...";
+                Process.Start(startInfo);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No corresponding " + srvName + " Or " + javaName + " found.", "Hint");
+                throw;
+            }
+            
         }
 
         /// <summary>
