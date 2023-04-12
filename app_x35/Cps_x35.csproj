@@ -6,7 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <Platforms>AnyCPU;x86</Platforms>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute> 
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <GeneratedAssemblyInfoFile>assemblyinfo.cs</GeneratedAssemblyInfoFile>
   </PropertyGroup>
 
   <ItemGroup>
