@@ -74,11 +74,11 @@ int maxAge = context.Persons.Max(p => p.Age);
 ```
 private void treeview1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
 {
-	if (e.Button == MouseButtons.Right)
-	{
-		s = e.Node.Name;
-		menuStrip1.Show();
-	}
+    if (e.Button == MouseButtons.Right)
+    {
+        s = e.Node.Name;
+        menuStrip1.Show();
+    }
 }
 ```
 
@@ -136,3 +136,9 @@ Source: C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
 
 ### [ASCII](https://stackoverflow.com/a/14145356)
 ASCII encoding replaces non-ascii with question marks, so we use UTF8 to see if multi-byte sequences are there
+
+### [build project](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build)
+> This article applies to: .NET Core 3.1 SDK and later versions
+```
+dotnet build
+```
