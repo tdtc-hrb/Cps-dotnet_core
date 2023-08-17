@@ -244,21 +244,20 @@ namespace Cps_x35.Models
                 var arrvieStations = context.ArriveStations
                     .Where(a => a.Id == iArrvieStationId);
 
-                if (iType == 0) // Get Description
+                foreach (var arrvieStation in arrvieStations)
                 {
-                    foreach (var arrvieStation in arrvieStations)
+                    // Get Description
+                    if (iType == 0)
                     {
                         result = arrvieStation.Description;
                     }
-                }
-
-                if (iType == 1) // Get Name
-                {
-                    foreach (var arrvieStation in arrvieStations)
+                    // Get Name
+                    if (iType == 1)
                     {
                         result = arrvieStation.Name;
                     }
                 }
+
             }
 
             return result;
