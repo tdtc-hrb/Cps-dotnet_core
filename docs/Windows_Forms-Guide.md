@@ -140,5 +140,6 @@ ASCII encoding replaces non-ascii with question marks, so we use UTF8 to see if 
 ### [build project](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build)
 > This article applies to: .NET Core 3.1 SDK and later versions
 ```
+cd Cps_dotnet-core
 dotnet build
 ```
