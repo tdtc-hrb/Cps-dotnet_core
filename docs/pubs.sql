@@ -32,7 +32,7 @@ CREATE TABLE `arrivestation` (
   `id` int NOT NULL,
   `name` varchar(30) DEFAULT NULL,
   `description` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `arrivestation`
@@ -53,7 +53,7 @@ CREATE TABLE `breedcoal` (
   `id` int NOT NULL,
   `name` varchar(30) DEFAULT NULL,
   `description` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `breedcoal`
@@ -83,7 +83,7 @@ CREATE TABLE `dispatchtemporary` (
   `consist` int DEFAULT NULL,
   `lot_id` int NOT NULL,
   `is_obsoleted` bit(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `dispatchtemporary`
@@ -126,7 +126,7 @@ CREATE TABLE `lotnumstatuses` (
   `id` int NOT NULL,
   `name` varchar(30) NOT NULL,
   `description` varchar(120) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `weightstation` (
   `id` int NOT NULL,
   `name` varchar(30) DEFAULT NULL,
   `description` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `weightstation`
