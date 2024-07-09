@@ -106,6 +106,26 @@ nuget.org
 ```
 https://api.nuget.org/v3/index.json
 ```
+#### non-VS
+NuGet.Config:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageRestore>
+    <add key="enabled" value="True" />
+  </packageRestore>
+  <bindingRedirects>
+    <add key="skip" value="False" />
+  </bindingRedirects>
+  <packageManagement>
+    <add key="format" value="0" />
+    <add key="disabled" value="False" />
+  </packageManagement>
+  <packageSources>
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+  </packageSources>
+</configuration>
+```
 
 ### [NuGet - Offline](https://social.technet.microsoft.com/wiki/contents/articles/25127.nuget-offline-package.aspx)
 - down [.nupkg](https://www.nuget.org/) file    
