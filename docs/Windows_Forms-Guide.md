@@ -106,23 +106,16 @@ nuget.org
 ```
 https://api.nuget.org/v3/index.json
 ```
+- protocolVersion
+> Not compatible with versions prior to VS2017
+
 #### non-VS
 NuGet.Config:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-  <packageRestore>
-    <add key="enabled" value="True" />
-  </packageRestore>
-  <bindingRedirects>
-    <add key="skip" value="False" />
-  </bindingRedirects>
-  <packageManagement>
-    <add key="format" value="0" />
-    <add key="disabled" value="False" />
-  </packageManagement>
   <packageSources>
-    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
   </packageSources>
 </configuration>
 ```
