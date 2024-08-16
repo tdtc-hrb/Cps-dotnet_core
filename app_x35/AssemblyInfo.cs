@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("TDTC")]
 [assembly: AssemblyProduct("Cps_x35")]
-[assembly: AssemblyCopyright("Copyright ©  2022-2023 TDTC")]
+[assembly: AssemblyCopyright("Copyright ©  2022-2024 TDTC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
