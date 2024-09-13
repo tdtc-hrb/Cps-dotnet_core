@@ -42,10 +42,10 @@ SHA256 with RSA
 ### run
 - Server
 ```cmd
-java -Dfile.encoding=UTF8 -classpath "C:/commsrv2;C:/commsrv2/lib/log4j-1.2.17.jar;C:/commsrv2/lib/xom-1.1.jar;C:/commsrv2/lib/bctls-fips-1.0.17.jar;C:/commsrv2/lib/bc-fips-1.0.2.4.jar" Server C:/receive/configQ.xml
+java -Dfile.encoding=UTF8 -classpath "C:/commsrv2;C:/commsrv2/lib/log4j-1.2.17.jar;C:/commsrv2/lib/xom-1.1.jar;C:/commsrv2/lib/bctls-fips-1.0.19.jar;C:/commsrv2/lib/bc-fips-1.0.2.4.jar" Server C:/receive/configQ.xml
 ```
 
 - Client
 ```cmd
-java -Dfile.encoding=UTF8 -classpath "C:/commclient2;C:/commclient2/lib/log4j-1.2.17.jar;C:/commclient2/lib/xom-1.1.jar;C:/commclient2/lib/bctls-fips-1.0.17.jar;C:/commclient2/lib/bc-fips-1.0.2.4.jar" Client C:/send/configQ.xml 3
+java -Dfile.encoding=UTF8 -classpath "C:/commclient2;C:/commclient2/lib/log4j-1.2.17.jar;C:/commclient2/lib/xom-1.1.jar;C:/commclient2/lib/bctls-fips-1.0.19.jar;C:/commclient2/lib/bc-fips-1.0.2.4.jar" Client C:/send/configQ.xml 3
 ```
